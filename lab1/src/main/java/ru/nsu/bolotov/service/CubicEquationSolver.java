@@ -15,7 +15,7 @@ public final class CubicEquationSolver {
                 2 * cubicEquationParameters.parameterA(),
                 cubicEquationParameters.parameterB()
         );
-        QuadraticEquationRootsRepresentation quadraticEquationSolution = QuadraticEquationSolver.solveEquation(quadraticEquationParameters);
+        QuadraticEquationSolutionRepresentation quadraticEquationSolution = QuadraticEquationSolver.solveEquation(quadraticEquationParameters);
         if (quadraticEquationSolution.discriminant() <= 0) {
             findRootsNegativeDiscriminantCase(inputData);
         } else {
@@ -25,7 +25,7 @@ public final class CubicEquationSolver {
 
     private static void findRootsPositiveDiscriminantCase(
             InputDataRepresentation inputData,
-            QuadraticEquationRootsRepresentation quadraticEquationSolution
+            QuadraticEquationSolutionRepresentation quadraticEquationSolution
     ) {
         CubicEquationParameters cubicEquationParameters = inputData.cubicEquationParameters();
         double epsilon = inputData.calculationErrorParameters().epsilon();

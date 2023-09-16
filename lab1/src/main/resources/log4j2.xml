@@ -7,7 +7,7 @@
     </Appenders>
     <Loggers>
         <!-- avoid duplicated logs with additivity=false -->
-        <Logger name="ru.nsu.bolotov.service.CubicEquationSolver" level="info" additivity="false">
+        <Logger name="ru.nsu.bolotov.service.CubicEquationSolver" level="trace" additivity="false">
             <AppenderRef ref="LogToConsole"/>
         </Logger>
         <Root level="error">

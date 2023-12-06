@@ -22,11 +22,11 @@ public class RungeMethodApplication {
 
         System.out.println("N = " + UtilConsts.ComputationConsts.NUMBER_OF_SEGMENTS);
         ApproximationOrders firstFunctionOrders = calculateApproximationOrder(inputParameters1);
-        System.out.println("f(x) = x^5 - 0,1 * x^2 - 3 от 2 до 5");
+        System.out.println(inputFunction1);
         System.out.println(firstFunctionOrders);
 
         ApproximationOrders secondFunctionOrders = calculateApproximationOrder(inputParameters2);
-        System.out.println("f(x) = sin(x + 4.9) от -Pi до Pi/3");
+        System.out.println(inputFunction2);
         System.out.println(secondFunctionOrders);
     }
 

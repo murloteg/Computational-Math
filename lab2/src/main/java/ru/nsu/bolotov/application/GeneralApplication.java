@@ -101,7 +101,7 @@ public class GeneralApplication {
     }
 
     /**
-     * Formula: (h / 3) * (f(x_0) + f(x_n) + {2 * sum [from i = 0 to i = (m - 1)] of (f(x_2i))} + {4 * sum [from i = 0 to i = (m - 1)] of (f(x_2i+1))})
+     * Formula: (h / 3) * (f(x_0) + f(x_n) + {2 * sum [from i = 2 to i = (n - 2); i += 2] of (f(x_i))} + {4 * sum [from i = 1 to i = (n - 1); i += 2] of (f(x_i))})
      */
     public static double simpsonMethod(InputParameters inputParameters) {
         InputFunction inputFunction = inputParameters.inputFunction();
@@ -110,19 +110,14 @@ public class GeneralApplication {
         double lowerLimit = integrationLimits.lowerLimit();
         double upperLimit = integrationLimits.upperLimit();
         double h = (upperLimit - lowerLimit) / numberOfSegments;
-        int m = numberOfSegments / 2;
 
         double result = (inputFunction.getFunctionValue(lowerLimit) + inputFunction.getFunctionValue(upperLimit));
-        double initialPoint = lowerLimit;
-        for (int i = 0; i < m; ++i) {
-            result += (2 * inputFunction.getFunctionValue(initialPoint));
-            initialPoint += (2 * h);
+        for (int i = 2; i < numberOfSegments - 1; i += 2) {
+            result += (2 * inputFunction.getFunctionValue(lowerLimit + i * h));
         }
 
-        initialPoint = (lowerLimit + h);
-        for (int i = 0; i < m; ++i) {
-            result += (4 * inputFunction.getFunctionValue(initialPoint));
-            initialPoint += (2 * h);
+        for (int i = 1; i < numberOfSegments; i += 2) {
+            result += (4 * inputFunction.getFunctionValue(lowerLimit + i * h));
         }
         result *= (h / 3);
         return result;

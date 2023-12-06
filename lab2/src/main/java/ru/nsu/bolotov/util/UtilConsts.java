@@ -2,7 +2,7 @@ package ru.nsu.bolotov.util;
 
 public final class UtilConsts {
     public static final class ComputationConsts {
-        public static final int NUMBER_OF_SEGMENTS = 100;
+        public static final int NUMBER_OF_SEGMENTS = 1000;
 
         private ComputationConsts() {
             throw new IllegalStateException(StringConsts.INSTANTIATION_MESSAGE);
